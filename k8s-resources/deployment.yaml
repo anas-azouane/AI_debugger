@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analyzer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: analyzer
+  template:
+    metadata:
+      labels:
+        app: analyzer
+    spec:
+      containers:
+      - name: analyzer
+        image: anasaz04/analyzer:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SERVER_URL
+          value: "http://192.168.49.1:7878"
+        - name: API_KEY
+          value: "debugger"
+        - name: GROQ_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: analyzer-secrets
+              key: groq_api_key
+        - name: SLACK_WEBHOOK_URL
+          valueFrom:
+            secretKeyRef:
+              name: analyzer-secrets
+              key: slack_webhook_url
+
