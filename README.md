@@ -1,6 +1,6 @@
 # AI_debugger
 
-**AI_debugger** is a diagnostics toolkit designed to automate and enhance Linux process analysis using AI. It provides a distributed system for collecting process data, exposing system internals via HTTP, and analyzing them with an LLM (Groq API), optionally sending alerts to Slack.
+**AI_debugger** is a diagnostics toolkit designed to automate and enhance Linux process analysis using AI. It provides a distributed system for collecting process data, exposing system internals via HTTP, and analyzing them with an LLM (Groq API), and sending alerts to Slack.
 
 ## Features
 
@@ -75,7 +75,7 @@
 
 - `SERVER_URL` — URL for Rust HTTP server (e.g., http://localhost:7878)
 - `GROQ_API_KEY` — Groq LLM API key
-- `SLACK_WEBHOOK_URL` — Slack webhook for alerts (optional)
+- `SLACK_WEBHOOK_URL` — Slack webhook for alerts
 
 ## Security
 
