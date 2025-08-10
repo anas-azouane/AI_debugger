@@ -48,13 +48,12 @@
 ### 2. Python Analyzer (FastAPI)
 
 - Navigate to `client/`
-- Build Docker image:
+- Build Docker image
+- Push to a container repository, or build with minikube's docker
+- Add secret.yaml with the appropriate fields in k8s-resources
+- Run:
   ```sh
-  docker build -t ai-analyzer .
-  ```
-- Run container (set env vars as needed):
-  ```sh
-  docker run -e SERVER_URL="http://your_server:7878" -e GROQ_API_KEY="your_groq_key" -e SLACK_WEBHOOK_URL="your_slack_webhook" -p 8000:8000 ai-analyzer
+  kubectl apply -f k8s-resources/
   ```
 - API endpoint: `POST /analyze` with JSON `{ "pid": <pid> }`
 - The analyzer:
